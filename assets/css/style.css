@@ -1,0 +1,145 @@
+    body {
+      margin: 0;
+      background-color: #1e1e1e;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      height: 100vh;             
+     
+    }
+
+    /* sidebar  */
+     .sidebar {
+     position: fixed;            
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;              
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+    }
+
+    .sidebar img {
+      padding: 5px 20px;
+      margin-bottom: 30px;
+      width: 64px;
+      
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: white;
+      text-decoration: none;
+      background-color: transparent;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .sidebar a.active,
+    .sidebar a:hover {
+      background-color: #3a3a3a;
+    }
+
+    .sidebar .bottom-links{
+        position: absolute;
+        bottom: 20px;
+    }
+    .bottom-links i{
+         width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+   font-size: 24px; 
+    }
+    .bottom-links > *:hover {
+    background-color: #555;
+    }
+
+/* top bar */
+    .topbar {
+  position: sticky;
+  top: 0;
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid #333;
+  background-color: #1e1e1e;
+  z-index: 5;
+  width: 100%; 
+  box-sizing: border-box;
+  height: 80px;
+}
+
+.search {
+  flex: 1;
+  max-width: 500px; 
+}
+
+.search input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+}
+
+.search input::placeholder {
+  color: #aaa;
+}
+
+.top-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto; 
+}
+.top-icons .notifications i{
+  font-size: 24px;
+  margin-top: 25%;
+}
+
+.top-icons > * {
+    width: 34px;
+    height: 34px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.top-icons > *:hover {
+  background-color: #555;
+}
+
+.notifications i {
+  font-size: 18px;
+  color: white;
+}
+
+.top-icons img {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+     
