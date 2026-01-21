@@ -15,19 +15,19 @@
 
                 <div class="post-grid">
                     <div class="post"><img src="../assets/images/logo.jpg" alt=""></div>
-                    <div class="post"><img src="../assets/images/test.png" alt=""></div>
+                    <div class="post"><img src="../assets/images/test2.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/4k.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/logo.jpg" alt=""></div>
-                    <div class="post"><img src="../assets/images/test.png" alt=""></div>
+                    <div class="post"><img src="../assets/images/test3.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/4k.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/logo.jpg" alt=""></div>
-                    <div class="post"><img src="../assets/images/test.png" alt=""></div>
+                    <div class="post"><img src="../assets/images/test2.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/4k.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/logo.jpg" alt=""></div>
-                    <div class="post"><img src="../assets/images/test.png" alt=""></div>
+                    <div class="post"><img src="../assets/images/test3.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/4k.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/logo.jpg" alt=""></div>
-                    <div class="post"><img src="../assets/images/test.png" alt=""></div>
+                    <div class="post"><img src="../assets/images/test2.jpg" alt=""></div>
                     <div class="post"><img src="../assets/images/4k.jpg" alt=""></div>
                 </div>
 
