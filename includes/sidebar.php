@@ -1,3 +1,4 @@
+   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-chubby/css/uicons-solid-chubby.css'>
   <div class="sidebar">
         <div class="top-links">
             <img src="/assets/images/logo.jpg" alt="logo">

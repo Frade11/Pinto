@@ -1,3 +1,4 @@
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 <div class="topbar">
         <div class="search">
             <input type="text" placeholder="Search...">
