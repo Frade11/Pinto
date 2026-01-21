@@ -36,6 +36,7 @@
       />
       <span class="media-text">Upload image</span>
     </label>
+   <div id="file-preview" style="margin-top:10px;"></div>
 
     <div class="or">OR</div>
 
@@ -98,4 +99,5 @@
 
 </body>
 <script src="/assets/js/gallery_grid.js"></script>
+<script src="/assets/js/img_predisplay.js"></script>
 </html>
