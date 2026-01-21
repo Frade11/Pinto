@@ -9,31 +9,9 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="top-links">
-            <img src="/assets/images/logo.jpg" alt="logo">
-            <a href="home.php" class="active">Home</a>
-            <a href="posts.php">Posts</a>
-            <a href="trends.php">Trends</a>
-            <a href="pins.php">Pins</a>
-            <a href="create.php">Create</a>
-        </div>
-
-        <div class="bottom-links">
-            <i class="fi fi-sc-settings"></i>
-        </div>
-    </div>
+  <?php require '../includes/sidebar.php';?>
   <div class="main-container">
-    <div class="topbar">
-        <div class="search">
-            <input type="text" placeholder="Search...">
-        </div>
-        <div class="top-icons">
-            <div class="notifications"><i class="fi fi-rs-bell-notification-social-media"></i></div>
-            <img src="/assets/images/logo.jpg" alt="user" class="userIcon">
-        </div>
-    </div>
-
+    <?php require '../includes/topnav.php';?>
     <div class="main-content">
         <div class="content">
         <div class="main-feed">
