@@ -230,6 +230,18 @@ body {
     margin: 40px auto 0;
     padding-top: 20px;
 }
+.line-post-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 1600px;
+    justify-content:space-between;
+}
+.line_post img{
+    width: 90%;
+    border-radius: 8px;
+    cursor: pointer;
+}
 /*
 .recent-posts h3 {
     margin-bottom: 20px;

@@ -21,12 +21,20 @@
         <div class="recent-posts">
              <h3>Recent Posts</h3>
              <div class="explore">Explore →</div>
-                <div class="post-grid">
-                    <div class="post"></div>
-                    <div class="post"></div>
-                    <div class="post"></div>
-                    <div class="post"></div>
-                    <div class="post"></div>
+                <div class="line-post-grid">
+                    <?php 
+                       require_once "../connection.php";
+
+                       
+                    
+                    
+                    ?>
+                    <div class="line_post"><img src="/uploads/post_69714b2ed400f.jpg" alt=""></div>
+                    <div class="line_post"><img src="/uploads/post_69714b2ed400f.jpg" alt=""></div>
+                    <div class="line_post"><img src="/uploads/post_69714b2ed400f.jpg" alt=""></div>
+                    <div class="line_post"><img src="/uploads/post_69714b2ed400f.jpg" alt=""></div>
+   
+
                 </div>
 
             </div>
