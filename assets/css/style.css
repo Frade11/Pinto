@@ -180,14 +180,16 @@ body {
     padding: 20px;
     overflow-y: auto;
     max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .content {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 280px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
