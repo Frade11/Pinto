@@ -15,7 +15,11 @@
         <div class="main-feed">
             <img src="/assets/images/banner.jpg" alt="banner">
         </div>
-        <div class="side-news"></div>
+        <div class="side-news">
+            <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
+            <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
+            <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
+        </div>
         </div>
 
         <div class="recent-posts">

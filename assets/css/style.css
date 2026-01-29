@@ -222,6 +222,10 @@ body {
     background-color: #333333;
     border-radius: 15px;
     min-height: 450px;
+    padding:20px 35px;
+}
+.news{
+    margin-top: 15px;
 }
 
  .recent-posts {
