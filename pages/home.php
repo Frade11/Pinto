@@ -52,7 +52,7 @@
                             LEFT JOIN post_media pm ON p.id = pm.post_id 
                             WHERE pm.type = 'image'                      
                             ORDER BY p.created_at DESC                 
-                            LIMIT 4;                                    
+                            LIMIT 6;                                    
                         ";
 
                         
@@ -89,12 +89,6 @@
                                         alt="' . htmlspecialchars($post['post_title']) . '" 
                                         class="post-image"
                                         onerror="this.src=\'/assets/images/default-post.jpg\'">
-                                    
-                                    <div class="post-overlay">
-                                        <div class="post-info">
-                                            <div class="post-title">' . $title . '</div>
-                                        </div>
-                                    </div>
                                 </a>';
                             }
                             

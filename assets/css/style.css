@@ -235,7 +235,7 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     max-width: 1600px;
-    justify-content:space-between;
+    justify-content:space-around;
 }
 .line_post{
  max-width: 400px;
@@ -247,6 +247,7 @@ body {
     cursor: pointer;
     max-height: 200px;
 }
+
 /*
 .recent-posts h3 {
     margin-bottom: 20px;
