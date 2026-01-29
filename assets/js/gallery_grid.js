@@ -4,10 +4,10 @@ function masonryLayout() {
   const containerWidth = container.clientWidth;
   
   let columns = 6;
+  if (window.innerWidth > 1200) columns = (Math.floor(window.innerWidth/280));
   if (window.innerWidth <= 1200) columns = 5;
   if (window.innerWidth <= 768) columns = 3;
   if (window.innerWidth <= 480) columns = 2;
-
   const columnHeights = new Array(columns).fill(0);
   const columnWidth = containerWidth / columns;
 

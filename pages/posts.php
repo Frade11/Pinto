@@ -10,7 +10,7 @@
      <?php require '../includes/sidebar.php';?>
   <div class="main-container">
     <?php require '../includes/topnav.php';?>
-    <div class="main-content">
+    <div class="posts-content">
 
  <?php
             require_once "../connection.php";
