@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinto</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
   <?php require '../includes/sidebar.php';?>
@@ -13,7 +13,7 @@
     <div class="main-content">
         <div class="content">
         <div class="main-feed">
-            <img src="/assets/images/banner.jpg" alt="banner">
+            <img src="../assets/images/banner.jpg" alt="banner">
         </div>
         <div class="side-news">
             <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
@@ -92,9 +92,10 @@
                                     <img src="' . $imgSrc . '" 
                                         alt="' . htmlspecialchars($post['post_title']) . '" 
                                         class="post-image"
-                                        onerror="this.src=\'/assets/images/default-post.jpg\'">
+                                        onerror="this.src=\'../assets/images/banner.jpg\'">
                                 </a>';
                             }
+                            // надо потом вместо баннера дефаулт фотку поставить 
                             
                             echo '</div>';
                         } else {
@@ -110,7 +111,7 @@
             </div>
         </div>
     </div></div>
-    <script src="/assets/js/lineposts_size.js"></script>
-    <script src="/assets/js/mainScripts.js"></script>
+    <script src="../assets/js/lineposts_size.js"></script>
+    <script src="../assets/js/mainScripts.js"></script>
 </body>
 </html>

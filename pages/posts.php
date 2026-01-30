@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
      <?php require '../includes/sidebar.php';?>
@@ -77,7 +77,7 @@
                         <img src="' . $imgSrc . '" 
                              alt="' . htmlspecialchars($post['post_title']) . '" 
                              class="post-image"
-                             onerror="this.src=\'/assets/images/default-post.jpg\'">
+                             onerror="this.src=\'../assets/images/banner.jpg\'">
                         
                         <div class="post-overlay">
                             <div class="post-info">
@@ -137,5 +137,5 @@
             <span>' . htmlspecialchars($post['username']) . '</span>
         </div> -->
 </body>
-<script src="/assets/js/gallery_grid.js"></script>
+<script src="../assets/js/gallery_grid.js"></script>
 </html>

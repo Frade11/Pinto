@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create pin</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
      <?php require '../includes/sidebar.php';?>
@@ -98,6 +98,6 @@
     </div></div>
 
 </body>
-<script src="/assets/js/gallery_grid.js"></script>
-<script src="/assets/js/img_predisplay.js"></script>
+<script src="../assets/js/gallery_grid.js"></script>
+<script src="../assets/js/img_predisplay.js"></script>
 </html>
