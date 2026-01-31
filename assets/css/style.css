@@ -186,6 +186,44 @@ body {
     cursor: pointer;
 }
 
+.userInfoOverlay{
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    width: 300px;
+    height: 130px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgba(42, 42, 42, 0.95); /* почти черный с прозрачностью */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.userInfoOverlay p, .userInfoOverlay a {
+    color: #fff;
+}
+.userInfo .userName{
+    font-size: 18px;
+}
+.userInfo .userEmail,.userInfo .userRole{
+    font-size: 14px;
+    color: #ccc;
+}
+.userInfoOverlay .icon img{
+    width: 60px;
+    height: 60px;
+}
+.userInfoOverlay .logoutBtn i{
+    position: relative;
+    left: 95%;
+    top: 10px;
+    cursor: pointer;
+}
+.user-container{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+}
+
 .main-content {
     flex: 1;
     padding: 20px;
