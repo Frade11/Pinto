@@ -3,7 +3,7 @@
 
   <div class="sidebar">
         <div class="top-links">
-            <img src="../assets/images/logo.jpg" class="logoImg" alt="logo" >
+            <img src="../assets/images/newLogo.png" class="logoImg" alt="logo" >
             <a href="home.php" id = "home" ><i class="fi fi-rr-home"></i>Home</a>
             <a href="posts.php" id = "posts"><i class="fi fi-rr-camera"></i>Posts</a>
             <a href="trends.php" id = "trends"><i class="fi fi-rr-arrow-trend-up"></i>Trends</a>

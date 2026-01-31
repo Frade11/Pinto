@@ -34,8 +34,8 @@ body {
 }
 
 .sidebar img {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: auto;
     border-radius: 10%;
     margin-bottom: 30px;
     align-self: center;
@@ -100,8 +100,8 @@ body {
     flex: 1;
     margin-left: 200px;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     width: calc(100% - 200px);
 }
 
@@ -238,28 +238,32 @@ body {
     margin-top: 15px;
 }
 
- .recent-posts {
+ .recent-posts,.popular-posts {
     width: 100%;
     max-width: 1600px;
     margin: 40px auto 0;
     padding-top: 20px;
+}
+.popular-posts{
+    position: relative;
 }
 .line-post-grid{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     max-width: 1600px;
-    justify-content:space-around;
+    justify-content:center;
+    gap: 10px;
 }
-.line_post{
+.line_postб.line_post1{
  max-width: 400px;
  max-height: 600px;
 }
-.line_post img{
-    width: 90%;
+.line_post img ,.line_post1 img{
+    width: 100%;
     border-radius: 8px;
     cursor: pointer;
-    max-height: 200px;
+    max-height: 400px;
 }
 
 /*
