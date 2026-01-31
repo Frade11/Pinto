@@ -22,7 +22,7 @@ require_once "../connection.php";
         <div class="side-news">
             <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
             <p class="news">v1.2 register/login system where posts are linked tu user id</p>
-            <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
+            <p class="news">v1.3 added popular posts on home page</p>
         </div>
         </div>
 
@@ -101,7 +101,7 @@ require_once "../connection.php";
                             
                             echo '</div>';
                         } else {
-                            echo '<p>Постов пока нет.</p>';
+                            echo "<p>There aren't posts yet</p>";
                         }
                     
                       $stmt->close();
@@ -185,7 +185,7 @@ require_once "../connection.php";
                             
                             echo '</div>';
                         } else {
-                            echo '<p>Постов пока нет.</p>';
+                            echo "<p>There aren't posts yet</p>";
                         }
                     
                       $stmt->close();
