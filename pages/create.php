@@ -71,10 +71,25 @@
       name="category_id"
       class="input"
     >
-      <option value="">Category</option>
-      <option value="1">Design</option>
-      <option value="2">Art</option>
-      <option value="3">UI/UX</option>
+    <option value="">Category</option>
+    <option value="1">Design</option>
+    <option value="2">Art</option>
+    <option value="3">Games</option>
+    <option value="4">UI/UX</option>
+    <option value="5">Photography</option>
+    <option value="6">Music</option>
+    <option value="7">Technology</option>
+    <option value="8">Education</option>
+    <option value="9">Travel</option>
+    <option value="10">Food</option>
+    <option value="11">Fashion</option>
+    <option value="12">Movies</option>
+    <option value="13">Sports</option>
+    <option value="14">Lifestyle</option>
+    <option value="15">Nature</option>
+    <option value="16">Anime</option>
+    <option value="17">Meme</option>
+
     </select>
 
     <input

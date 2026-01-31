@@ -116,7 +116,7 @@
                 echo '<div class="no-posts">
                         <h2>No posts yet</h2>
                         <p>Be the first to create a post!</p>
-                        <a href="/create-post.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #E60023; color: white; text-decoration: none; border-radius: 24px;">
+                        <a href="../pages/create.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #E60023; color: white; text-decoration: none; border-radius: 24px;">
                             Create Post
                         </a>
                       </div>';
