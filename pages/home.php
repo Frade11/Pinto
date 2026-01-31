@@ -23,6 +23,7 @@ require_once "../connection.php";
             <p class="news">v1.1 working posts page,recent posts and creating a new one</p>
             <p class="news">v1.2 register/login system where posts are linked tu user id</p>
             <p class="news">v1.3 added popular posts on home page</p>
+            <p class="news">v1.4 added user overlay and more secure logout</p>
         </div>
         </div>
 
