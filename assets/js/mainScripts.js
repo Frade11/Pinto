@@ -1,8 +1,11 @@
-const exploreBtns = document.querySelectorAll('.explore');
-exploreBtns.forEach(btn => {
-    btn.addEventListener('click',()=>{
-    window.location.href = 'posts.php'
-})})
+document.addEventListener('DOMContentLoaded', () => {
+    const exploreBtns = document.querySelectorAll('.explore');
+    exploreBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            window.location.href = '../pages/posts.php';
+        });
+    });
+});
 
 const userIcon = document.getElementById('userIcon');
 const userOverlay = document.getElementById('userOverlay');
