@@ -15,7 +15,7 @@
     <div class="main-content">
         <div class="content">
         <div class="main-feed">
-            <img src="../assets/images/banner.jpg" alt="banner">
+            <img src="../assets/images/banner1.gif" alt="banner">
         </div>
         <div class="side-news">
             <p class="news">v1.1 working posts page,recent posts and creating a new one</p>

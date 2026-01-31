@@ -2,7 +2,25 @@
 require_once "../connection.php";
 session_start();
 
-$userId = 1; // временно
+$userEmail = $_SESSION['email'];
+
+if (!$userEmail) {
+    die("Error: login to continue");
+}
+$stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+$stmt->bind_param("s", $userEmail);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    $userId = $row['id'];
+} else {
+    die("Error:user not find");
+}
+
+$stmt->close();
+
+// $userId = 1; // временно
 
 $file = $_FILES['media_file'] ?? null;
 $url  = trim($_POST['media_url'] ?? "");
@@ -181,7 +199,7 @@ try {
     $conn->commit();
     
     // Перенаправляем на страницу поста или главную
-    header("Location: /pages/posts.php");
+    header("Location: ../pages/posts.php");
     exit();
 
 } catch (Exception $e) {

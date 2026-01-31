@@ -1,6 +1,7 @@
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 <div class="topbar">
         <div class="search">
+            <i class="fi fi-rs-search"></i>
             <input type="text" placeholder="Search...">
         </div>
         <div class="top-icons">

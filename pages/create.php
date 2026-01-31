@@ -16,10 +16,8 @@
         
        <h1 class="title">Pin create</h1>
 
-    
-
 <form
-  action="/api/create-post.php"
+  action="../api/create-post.php"
   method="POST"
   enctype="multipart/form-data"
   class="card"
