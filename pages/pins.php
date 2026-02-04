@@ -14,11 +14,11 @@
     <?php require '../includes/topnav.php';?>
         <div class="user-profile-info">
         <div class="user-avtar">
-            <img src="../assets/images/banner.jpg" alt="">
+            <img src="<?= htmlspecialchars($_SESSION['avatar'] ?? '../assets/images/logo.jpg')  ?> " alt="user">
         </div>
         <div class="user-infos">
-            <p class="username">Frade</p>
-            <p class="email">example@gmail.com</p>
+            <p class="username"><?= htmlspecialchars($_SESSION['name'] ?? '')  ?></p>
+            <p class="email"><?= htmlspecialchars($_SESSION['email'] ?? '') ?></p>
         </div>
         <button class="edit-profile">Edit profile</button>
     </div>
