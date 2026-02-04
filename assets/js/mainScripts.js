@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const exploreBtns = document.querySelectorAll('.explore');
-    exploreBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            window.location.href = '../pages/posts.php';
-        });
+const exploreBtns = document.querySelectorAll('.explore');
+exploreBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.location.href = '../pages/posts.php';
     });
 });
-
+    
 const userIcon = document.getElementById('userIcon');
 const userOverlay = document.getElementById('userOverlay');
 
@@ -23,4 +22,10 @@ logOutBtn.addEventListener('click', () => {
     window.location.href='../login/logout.php';
 })
 
+const redirectProfile = document.getElementById('user-popup');
+redirectProfile.addEventListener('click', () => {
+    window.location.href='../pages/pins.php';
+})
+
+});
 

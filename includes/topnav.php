@@ -14,7 +14,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             <div class="notifications"><i class="fi fi-rs-bell-notification-social-media"></i></div>
             <img src="<?= htmlspecialchars($_SESSION['avatar'] ?? '../assets/images/logo.jpg')  ?> " alt="user" class="userIcon" id="userIcon">
             <div class="userInfoOverlay" id="userOverlay">
-                <div class="user-container">
+                <div class="user-container" id="user-popup">
                     <div class="icon">
                         <img src="<?= htmlspecialchars($_SESSION['avatar'] ?? '../assets/images/logo.jpg')  ?> " alt="user" class="userIcon">
                         <!-- <img src="../assets/images/logo.jpg" alt="user" class="userIcon"> -->
