@@ -11,7 +11,7 @@ if(isset($_POST['register'])){
     $checkEmail = $conn->query("SELECT email from users WHERE email = '$email'");
     if($checkEmail->num_rows>0){
         $_SESSION['register_error'] = 'Email is already registered!';
-        $_SESSIOn['active_form'] = 'register';
+        $_SESSION['active_form'] = 'register';
     }else{
         $conn->query("INSERT INTO users (username,email,password_hash) VALUES ('$name','$email','$password')");
     }
