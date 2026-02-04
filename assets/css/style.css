@@ -656,7 +656,7 @@ select {
     align-items: center;
     gap: 10px;
     justify-content: center;
-    padding: 50px 0px 100px 0px;
+    padding: 50px 0px 70px 0px;
 }
 .user-infos{
    display: flex;
@@ -669,4 +669,25 @@ select {
     width: 64px;
     height: 64px;
     border-radius: 50%;
+}
+.edit-profile {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #444, #333);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px; 
+}
+
+.edit-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #555, #333);
+}
+.saved-posts{
+    padding: 30px;
+    font-size: 34px;
 }

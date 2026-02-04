@@ -20,11 +20,11 @@
             <p class="username">Frade</p>
             <p class="email">example@gmail.com</p>
         </div>
-        <div class="edit-profile">Edit profile</div>
+        <button class="edit-profile">Edit profile</button>
     </div>
-    
+    <h2 class="saved-posts">Saved posts</h2>
     <div class="posts-content">
-
+    
 
 
  <?php
