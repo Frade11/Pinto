@@ -200,6 +200,5 @@ require_once "../connection.php";
 </div>
 <?php $conn->close(); ?>
     <script src="../assets/js/lineposts_size.js"></script>
-    <script src="../assets/js/mainScripts.js"></script>
 </body>
 </html>

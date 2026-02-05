@@ -102,7 +102,7 @@
                     }
                     
                     echo '
-                    <a href="/view-post.php?id=' . $post['post_id'] . '" class="post">
+                    <a href="../pages/view-post.php?id=' . $post['post_id'] . '" class="post">
                         <img src="' . $imgSrc . '" 
                              alt="' . htmlspecialchars($post['post_title']) . '" 
                              class="post-image"
