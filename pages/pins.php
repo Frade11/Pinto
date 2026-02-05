@@ -27,12 +27,14 @@
         <div class="edit-popup">
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2>Edit profile</h2>
-            <img src="../assets/images/avatarPlaceholder.jpg" alt="Avatar" class="avatar-preview" id="avatarPreview">
+            <img src=<?= htmlspecialchars($_SESSION['avatar']) ?? "../assets/images/avatarPlaceholder.jpg" ?> alt="Avatar" class="avatar-preview" id="avatarPreview">
             <input type="url" id="avatarUrl" placeholder="Link to image">
             <input type="text" id="nickname" placeholder="New username">
             <button onclick="saveProfile()">Save</button>
         </div>
-    </div>
+    </div><!-- Контейнер для уведомлений -->
+<div id="notification" ></div>
+
 
     <h2 class="saved-posts">Saved posts</h2>
     <div class="posts-content">

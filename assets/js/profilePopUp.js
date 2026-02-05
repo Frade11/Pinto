@@ -5,6 +5,22 @@ function showPopup(){
 function closePopup(){
      document.getElementById('popupOverlay').classList.remove('show');
 }
+function showNotification(message, success = true){
+    const notif = document.getElementById('notification');
+    notif.textContent = message;
+    notif.style.background = success 
+        ? 'linear-gradient(135deg, #5b5bff, #9b6bff)'
+        : 'linear-gradient(135deg, #d93025, #ff5757)';
+
+    notif.style.opacity = '1';
+    notif.style.transform = 'translateY(0)';
+
+    setTimeout(()=>{
+        notif.style.opacity = '0';
+        notif.style.transform = 'translateY(-20px)';
+    }, 3000);
+}
+
 function saveProfile() {
     const avatarUrl = document.getElementById('avatarUrl').value;
     const nickname = document.getElementById('nickname').value;
@@ -27,15 +43,15 @@ function saveProfile() {
                 setTimeout(()=>avatarPreview.classList.remove('updated'),300);
             }
             if(nickname){
-                alert('Username successfully changed to: ' + nickname);
+                 showNotification('Username successfully changed to: ' + nickname, true);
             }
             closePopup();
         } else {
-            alert('Error: ' + result.message);
+              showNotification('Error: ' + result.message, false);
         }
     })
     .catch(err => {
         console.error(err);
-        alert('An error occurred while saving the profile');
+         showNotification('An error occurred while saving the profile', false);
     });
 }

@@ -750,7 +750,7 @@ select {
 }
 
 .edit-popup button {
-    background: linear-gradient(135deg, #5b5bff, #9b6bff);
+    background: linear-gradient(135deg, #444, #333);
     color: #fff;
     border-radius: 12px;
     padding: 12px;
@@ -763,7 +763,7 @@ select {
 }
 
 .edit-popup button:hover {
-    background: linear-gradient(135deg, #7a7aff, #b394ff);
+     background: linear-gradient(135deg, #555, #333);
 }
 
 .edit-popup .close-btn {
@@ -773,4 +773,21 @@ select {
 
 .edit-popup .avatar-preview {
     border: 2px solid #555;
+}
+#notification{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #5b5bff, #9b6bff);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2000;
 }
