@@ -20,8 +20,20 @@
             <p class="username"><?= htmlspecialchars($_SESSION['name'] ?? '')  ?></p>
             <p class="email"><?= htmlspecialchars($_SESSION['email'] ?? '') ?></p>
         </div>
-        <button class="edit-profile">Edit profile</button>
+        <button class="edit-profile" onclick="showPopup()">Edit profile</button>
     </div>
+
+    <div class="edit-popup-overlay " id="popupOverlay">
+        <div class="edit-popup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Edit profile</h2>
+            <img src="../assets/images/avatarPlaceholder.jpg" alt="Avatar" class="avatar-preview" id="avatarPreview">
+            <input type="url" id="avatarUrl" placeholder="Link to image">
+            <input type="text" id="nickname" placeholder="New username">
+            <button onclick="saveProfile()">Save</button>
+        </div>
+    </div>
+
     <h2 class="saved-posts">Saved posts</h2>
     <div class="posts-content">
     
@@ -153,4 +165,5 @@
         </div> -->
 </body>
 <script src="../assets/js/gallery_grid.js"></script>
+<script src="../assets/js/profilePopUp.js"></script>
 </html>
