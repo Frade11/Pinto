@@ -9,7 +9,7 @@ const createBtn = document.getElementById('create');
 
 const logoImg = document.querySelector('.logoImg')
 logoImg.addEventListener("click", () =>{
-    window.location.href = "/"
+    window.location.href = "../pages/home.php"
 })
 
 
