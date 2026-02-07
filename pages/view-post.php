@@ -17,6 +17,13 @@
         <div class="posts-content">
             <?php
             require_once "../connection.php";
+
+           $postId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+            if ($postId <= 0) {
+                echo "<h2 style='text-align:center;color:#999;margin-top:50px;'>Invalid post ID</h2>";
+                exit;
+            }
             
             $postsPerPage = 50;
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -52,8 +59,23 @@
             
             if ($result && $result->num_rows > 0) {
                 $allPosts = $result->fetch_all(MYSQLI_ASSOC);
-                $mainPost = $allPosts[0];
-                $otherPosts = array_slice($allPosts, 1);
+               // Если передан id — ищем этот пост
+            $mainPost = null;
+            foreach ($allPosts as $index => $p) {
+                if ($p['post_id'] == $postId) {
+                    $mainPost = $p;
+                    // удаляем этот пост из массива, чтобы не дублировался
+                    unset($allPosts[$index]);
+                    break;
+                }
+            }
+
+             // Если id не найден или не передан — ошибка
+                if (!$mainPost) {
+                    echo "<h2 style='text-align:center;color:#999;margin-top:50px;'>Invalid post ID</h2>";
+                    exit;
+                }
+                $otherPosts = array_values($allPosts);
                 
                 // Разделяем посты: 30% слева, 70% справа
                 $leftCount = ceil(count($otherPosts) * 0.3);
@@ -159,7 +181,7 @@
                                         $title = substr($title, 0, 47) . '...';
                                     }
                                     ?>
-                                    <a href="/view-post.php?id=<?= $post['post_id'] ?>" class="post">
+                                    <a href="../pages/view-post.php?id=<?= $post['post_id'] ?>" class="post">
                                         <img src="<?= $imgSrc ?>" 
                                              alt="<?= htmlspecialchars($post['post_title']) ?>" 
                                              class="post-image"
@@ -193,7 +215,7 @@
                                     $title = substr($title, 0, 27) . '...';
                                 }
                                 ?>
-                                <a href="/view-post.php?id=<?= $post['post_id'] ?>" class="post">
+                                <a href="../pages/view-post.php?id=<?= $post['post_id'] ?>" class="post">
                                     <img src="<?= $imgSrc ?>" 
                                          alt="<?= htmlspecialchars($post['post_title']) ?>" 
                                          class="post-image"

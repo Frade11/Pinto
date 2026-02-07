@@ -91,7 +91,7 @@ require_once "../connection.php";
 
                                 // Вывод карточки поста
                                 echo '
-                                <a href="/view-post.php?id=' . $post['post_id'] . '" class="line_post">
+                                <a href="../pages/view-post.php?id=' . $post['post_id'] . '" class="line_post">
                                     <img src="' . $imgSrc . '" 
                                         alt="' . htmlspecialchars($post['post_title']) . '" 
                                         class="post-image"
@@ -175,7 +175,7 @@ require_once "../connection.php";
 
                                 // Вывод карточки поста
                                 echo '
-                                <a href="/view-post.php?id=' . $post['post_id'] . '" class="line_post1">
+                                <a href="../pages/view-post.php?id=' . $post['post_id'] . '" class="line_post1">
                                     <img src="' . $imgSrc . '" 
                                         alt="' . htmlspecialchars($post['post_title']) . '" 
                                         class="post-image"
