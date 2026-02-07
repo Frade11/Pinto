@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
 </head>
 <body>
     <?php require '../includes/sidebar.php';?>
@@ -98,7 +99,7 @@
                 <div class="posts-layout">
                     <div class="main-post-container">
                         <!-- Основной пост -->
-                        <a href="/view-post.php?id=<?= $mainPost['post_id'] ?>" class="main-post">
+                        <!-- <a href="/view-post.php?id=<?= $mainPost['post_id'] ?>" class="main-post"> -->
                             <div class="main-post-image-container">
                                 <img src="<?= $mainImgSrc ?>" 
                                      alt="<?= htmlspecialchars($mainPost['post_title']) ?>" 
@@ -123,15 +124,21 @@
                                     <div class="main-post-description"><?= htmlspecialchars($mainPost['description']) ?></div>
                                 <?php endif; ?>
                                 
-                                <div class="main-post-meta">
-                                    <div class="main-post-stats">
-                                        <span><?= $mainPost['likes_count'] ?> likes</span>
-                                        <span><?= $mainPost['saves_count'] ?> saves</span>
-                                        <span><?= $mainDate ?></span>
-                                    </div>
+                              <div class="main-post-meta">
+                                <div class="main-post-stats">
+                                    <span id="like-count"><?= $mainPost['likes_count'] ?> likes</span>
+                                    <span id="save-count"><?= $mainPost['saves_count'] ?> saves</span>
+                                    <span><?= $mainDate ?></span>
+                                </div>
+                                <div class="main-post-actions">
+                                    <button class="like-btn" data-id="<?= $mainPost['post_id'] ?>">
+                                    <i class="fi fi-rs-heart"></i>
+                                    </button>
+                                    <button class="save-btn" data-id="<?= $mainPost['post_id'] ?>">Save</button>
+                                </div>
                                 </div>
                             </div>
-                        </a>
+                        <!-- </a> -->
                         
                         <!-- Левая колонка постов (под основным для десктопа) -->
                         <div class="masonry-grid" id="leftMasonry">
@@ -149,7 +156,7 @@
                                     $title = substr($title, 0, 47) . '...';
                                 }
                                 ?>
-                                <a href="/view-post.php?id=<?= $post['post_id'] ?>" class="post">
+                                <a href="../pages/view-post.php?id=<?= $post['post_id'] ?>" class="post">
                                     <img src="<?= $imgSrc ?>" 
                                          alt="<?= htmlspecialchars($post['post_title']) ?>" 
                                          class="post-image"
@@ -356,4 +363,5 @@ window.addEventListener('resize', () => {
     window._masonryTimer = setTimeout(setupResponsiveLayout, 200);
 });
 </script>
+<script src="../assets/js/statsUpdate.js"></script>
 </html>

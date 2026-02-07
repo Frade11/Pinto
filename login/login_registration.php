@@ -32,6 +32,7 @@ if(isset($_POST["login"])){
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'] ?? 'user';
             $_SESSION['avatar'] = $user['avatar_url'] ?? '../assets/images/logo.jpg';
+            $_SESSION['user_id'] = $user['id'];
 
             if($user['role'] === 'admin'){
                 header("location: ../admin_pannel/admin.php");
