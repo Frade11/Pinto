@@ -195,12 +195,15 @@ body {
   height: 130px;
   padding: 20px;
   border-radius: 12px;
-  background-color: rgba(42, 42, 42, 0.95); /* почти черный с прозрачностью */
+  background-color: rgba(42, 42, 42, 0.95); 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 .userInfoOverlay p,
 .userInfoOverlay a {
   color: #fff;
+}
+.userInfo {
+    cursor: pointer;
 }
 .userInfo .userName {
   font-size: 18px;

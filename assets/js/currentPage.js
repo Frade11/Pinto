@@ -19,5 +19,4 @@ switch(pageName){
     case 'trends.php': trendsBtn.classList.add("active"); break;
     case 'pins.php': pinbsBtn.classList.add("active"); break;
     case 'create.php': createBtn.classList.add("active"); break;
-    default:homeBtn.classList.add("active");
 }
