@@ -48,33 +48,34 @@
             $postsPerPage = 50;
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $offset = ($page - 1) * $postsPerPage;
-            
-            // Получаем посты с информацией о пользователе и медиа
+            $userId = $_SESSION['user_id']; 
+
             $sql = "
                 SELECT 
-                    p.id as post_id,
-                    p.name as post_title,
+                    p.id AS post_id,
+                    p.name AS post_title,
                     p.description,
                     p.likes_count,
                     p.saves_count,
                     p.created_at,
-                    u.id as user_id,
+                    u.id AS user_id,
                     u.username,
                     u.avatar_url,
-                    pm.type as media_type,
-                    pm.source as media_source,
+                    pm.type AS media_type,
+                    pm.source AS media_source,
                     pm.file_path,
-                    pm.url as media_url
-                FROM posts p
+                    pm.url AS media_url
+                FROM saved_posts sp
+                INNER JOIN posts p ON sp.post_id = p.id
                 INNER JOIN users u ON p.user_id = u.id
                 LEFT JOIN post_media pm ON p.id = pm.post_id
-                WHERE pm.type = 'image'
-                ORDER BY p.created_at DESC
+                WHERE sp.user_id = ? AND pm.type = 'image'
+                ORDER BY sp.created_at DESC
                 LIMIT ? OFFSET ?
             ";
-            
+
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ii", $postsPerPage, $offset);
+            $stmt->bind_param("iii",$userId, $postsPerPage, $offset);
             $stmt->execute();
             $result = $stmt->get_result();
             
@@ -142,9 +143,8 @@
             } else {
                 echo '<div class="no-posts">
                         <h2>No posts yet</h2>
-                        <p>Be the first to create a post!</p>
-                        <a href="../pages/create.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #E60023; color: white; text-decoration: none; border-radius: 24px;">
-                            Create Post
+                        <a href="../pages/posts.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #E60023; color: white; text-decoration: none; border-radius: 24px;">
+                           explore
                         </a>
                       </div>';
             }

@@ -95,7 +95,33 @@
                 
                 $mainDate = date('M d, Y', strtotime($mainPost['created_at']));
                 ?>
-                
+                <?php
+
+                // session_start();
+                $user_id = $_SESSION['user_id'] ?? 0;
+
+                // Определяем состояния лайка и сохранения
+                $isLiked = false;
+                $isSaved = false;
+
+                if ($user_id > 0) {
+                    // Проверяем лайк
+                    $stmt = $conn->prepare("SELECT 1 FROM post_likes WHERE user_id = ? AND post_id = ?");
+                    $stmt->bind_param("ii", $user_id, $mainPost['post_id']);
+                    $stmt->execute();
+                    $isLiked = $stmt->get_result()->num_rows > 0;
+                    $stmt->close();
+                    
+                    // Проверяем сохранение
+                    $stmt = $conn->prepare("SELECT 1 FROM saved_posts WHERE user_id = ? AND post_id = ?");
+                    $stmt->bind_param("ii", $user_id, $mainPost['post_id']);
+                    $stmt->execute();
+                    $isSaved = $stmt->get_result()->num_rows > 0;
+                    $stmt->close();
+                }
+
+                // Теперь у вас есть $isLiked и $isSaved
+                ?>
                 <div class="posts-layout">
                     <div class="main-post-container">
                         <!-- Основной пост -->
@@ -131,11 +157,13 @@
                                     <span><?= $mainDate ?></span>
                                 </div>
                                 <div class="main-post-actions">
-                                    <button class="like-btn" data-id="<?= $mainPost['post_id'] ?>">
-                                    <i class="fi fi-rs-heart"></i>
-                                    </button>
-                                    <button class="save-btn" data-id="<?= $mainPost['post_id'] ?>">Save</button>
-                                </div>
+                                <button class="like-btn <?= $isLiked ? 'active' : '' ?>" data-id="<?= $mainPost['post_id'] ?>">
+                                    <i class="fi <?= $isLiked ? 'fi-ss-heart' : 'fi-rs-heart' ?>"></i>
+                                </button>
+                                <button class="save-btn <?= $isSaved ? 'active' : '' ?>" data-id="<?= $mainPost['post_id'] ?>">
+                                    <?= $isSaved ? 'Saved' : 'Save' ?>
+                                </button>
+                            </div>
                                 </div>
                             </div>
                         <!-- </a> -->
@@ -268,7 +296,6 @@
                       </div>';
             }
             
-            $stmt->close();
             $conn->close();
             ?>
         </div>
