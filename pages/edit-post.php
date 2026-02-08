@@ -200,6 +200,16 @@
                     </div>
                 </div>
                 
+                <div id="deletePostModal" class="delete-post-modal">
+                    <div class="delete-post-modal-content">
+                        <h3 class="delete-post-modal-title">Delete Post</h3>
+                        <p class="delete-post-modal-text">Are you sure you want to delete this post?</p>
+                        <div class="delete-post-modal-actions">
+                        <button id="cancelDeletePost" class="delete-post-btn-cancel">Cancel</button>
+                        <button id="confirmDeletePost" class="delete-post-btn-confirm">Delete</button>
+                        </div>
+                    </div>
+                    </div>
                <?php
             } else {
                 echo '<div class="no-posts">
@@ -214,11 +224,27 @@
     </div>
 </body>
 <script>
+let deletePostId = null;
+
 function confirmDelete(postId) {
-    if (confirm("Are you sure you want to delete this post?")) {
-        window.location.href = `../api/delete_post.php?id=${postId}`;
-    }
+    deletePostId = postId;
+    document.getElementById('deletePostModal').style.display = 'block';
 }
+
+document.getElementById('cancelDeletePost').onclick = function() {
+    document.getElementById('deletePostModal').style.display = 'none';
+};
+
+document.getElementById('confirmDeletePost').onclick = function() {
+    window.location.href = `../api/delete_post.php?id=${deletePostId}`;
+};
+
+window.onclick = function(event) {
+    const modal = document.getElementById('deletePostModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
 </script>
 <script src="../assets/js/statsUpdate.js"></script>
 </html>
