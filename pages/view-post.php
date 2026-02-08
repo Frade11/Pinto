@@ -95,12 +95,11 @@
                 
                 $mainDate = date('M d, Y', strtotime($mainPost['created_at']));
                 ?>
+                
                 <?php
-
                 // session_start();
                 $user_id = $_SESSION['user_id'] ?? 0;
 
-                // Определяем состояния лайка и сохранения
                 $isLiked = false;
                 $isSaved = false;
 
@@ -119,8 +118,6 @@
                     $isSaved = $stmt->get_result()->num_rows > 0;
                     $stmt->close();
                 }
-
-                // Теперь у вас есть $isLiked и $isSaved
                 ?>
                 <div class="posts-layout">
                     <div class="main-post-container">
