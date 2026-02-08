@@ -48,7 +48,7 @@
     if($tab === 'likes'){
         include '../api/renderLikes.php';
     }elseif($tab === 'posts'){
-        include '../api/postsActions';
+        include '../api/postsActions.php';
     }else{
         include '../api/renderSaves.php'; 
     }

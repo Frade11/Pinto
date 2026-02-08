@@ -1,6 +1,6 @@
  <?php
 require_once "../connection.php";
-echo ' <h2 class="saved-posts">Liked posts</h2>
+echo ' <h2 class="saved-posts">Your posts</h2>
     <div class="posts-content">';
 // Количество постов на странице
 $postsPerPage = 50;
@@ -9,30 +9,29 @@ $offset = ($page - 1) * $postsPerPage;
 $userId = $_SESSION['user_id']; 
 
 $sql = "
-    SELECT 
-        p.id AS post_id,
-        p.name AS post_title,
-        p.description,
-        p.likes_count,
-        p.saves_count,
-        p.created_at,
-        u.id AS user_id,
-        u.username,
-        u.avatar_url,
-        pm.type AS media_type,
-        pm.source AS media_source,
-        pm.file_path,
-        pm.url AS media_url
-    FROM post_likes AS sp
-    INNER JOIN posts AS p ON sp.post_id = p.id
-    INNER JOIN users AS u ON p.user_id = u.id
-    INNER JOIN post_media AS pm 
-        ON p.id = pm.post_id 
-        AND pm.type = 'image'
-        AND (pm.file_path IS NOT NULL OR pm.url IS NOT NULL)
-    WHERE sp.user_id = ?
-    ORDER BY sp.created_at DESC
-    LIMIT ? OFFSET ?
+SELECT 
+    p.id AS post_id,
+    p.name AS post_title,
+    p.description,
+    p.likes_count,
+    p.saves_count,
+    p.created_at,
+    u.id AS user_id,
+    u.username,
+    u.avatar_url,
+    pm.type AS media_type,
+    pm.source AS media_source,
+    pm.file_path,
+    pm.url AS media_url,
+    pm.mime_type
+FROM posts AS p
+INNER JOIN users AS u ON p.user_id = u.id
+LEFT JOIN post_media AS pm 
+    ON p.id = pm.post_id 
+    AND pm.type = 'image'
+WHERE p.user_id = ?
+ORDER BY p.created_at DESC
+LIMIT ? OFFSET ?
 ";
 
 $stmt = $conn->prepare($sql);
@@ -82,15 +81,7 @@ if ($result && $result->num_rows > 0) {
     echo '</div>';
     
     // Пагинация
-    $countSql = "
-        SELECT COUNT(*) AS total
-        FROM post_likes AS sp
-        INNER JOIN post_media AS pm 
-            ON sp.post_id = pm.post_id 
-            AND pm.type = 'image'
-            AND (pm.file_path IS NOT NULL OR pm.url IS NOT NULL)
-        WHERE sp.user_id = ?
-    ";
+    $countSql = "SELECT COUNT(*) AS total FROM posts AS p INNER JOIN post_media AS pm ON p.id = pm.post_id WHERE p.user_id = ? AND pm.type = 'image'";
     $countStmt = $conn->prepare($countSql);
     $countStmt->bind_param("i", $userId);
     $countStmt->execute();
@@ -117,9 +108,9 @@ if ($totalPages > 1) {
     
 } else {
     echo '<div class="no-posts">
-            <h2>No liked yet</h2>
-            <a href="../pages/posts.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #333; color: white; text-decoration: none; border-radius: 24px;">
-                explore
+            <h2>You dont have any posts!</h2>
+            <a href="../pages/create.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #333; color: white; text-decoration: none; border-radius: 24px;">
+                Create
             </a>
             </div>';
 }

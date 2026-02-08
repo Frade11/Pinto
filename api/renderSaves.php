@@ -118,7 +118,7 @@ if ($totalPages > 1) {
 } else {
     echo '<div class="no-posts">
             <h2>No posts yet</h2>
-            <a href="../pages/posts.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #E60023; color: white; text-decoration: none; border-radius: 24px;">
+            <a href="../pages/posts.php" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #333; color: white; text-decoration: none; border-radius: 24px;">
                 explore
             </a>
             </div>';
