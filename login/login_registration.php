@@ -3,22 +3,33 @@
 session_start();
 require_once '../connection.php';
 
-if(isset($_POST['register'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    if(isset($_POST['register'])){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $checkEmail = $conn->query("SELECT email from users WHERE email = '$email'");
-    if($checkEmail->num_rows>0){
+    $checkEmail = $conn->query("SELECT id FROM users WHERE email = '$email'");
+    if($checkEmail->num_rows > 0){
         $_SESSION['register_error'] = 'Email is already registered!';
         $_SESSION['active_form'] = 'register';
-    }else{
-        $conn->query("INSERT INTO users (username,email,password_hash) VALUES ('$name','$email','$password')");
+        header("location:../login/login.php");
+        exit();
     }
 
-    header("location:../login/login.php");
-    exit();
-}
+    $checkName = $conn->query("SELECT id FROM users WHERE username = '$name'");
+    if($checkName->num_rows > 0){
+        $_SESSION['register_error'] = 'Username is already taken!';
+        $_SESSION['active_form'] = 'register';
+        header("location:../login/login.php");
+        exit();
+    }
+
+    $conn->query("INSERT INTO users (username,email,password_hash) VALUES ('$name','$email','$password')");
+
+
+        header("location:../login/login.php");
+        exit();
+    }
 
 if(isset($_POST["login"])){
     $email = $_POST["email"];

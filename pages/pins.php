@@ -14,7 +14,7 @@
     <?php require '../includes/topnav.php';?>
         <div class="user-profile-info">
         <div class="user-avtar">
-            <img src="<?= htmlspecialchars($_SESSION['avatar'] ?? '../assets/images/logo.jpg')  ?> " alt="user">
+            <img src="<?= htmlspecialchars($_SESSION['avatar'] ?? '../assets/images/avatarPlaceholder.jpg')  ?> " alt="user">
         </div>
         <div class="user-infos">
             <p class="username"><?= htmlspecialchars($_SESSION['name'] ?? '')  ?></p>

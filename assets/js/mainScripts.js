@@ -24,7 +24,7 @@ logOutBtn.addEventListener('click', () => {
 
 const redirectProfile = document.getElementById('user-popup');
 redirectProfile.addEventListener('click', () => {
-    window.location.href='../pages/pins.php';
+    window.location.href='../pages/pins.php?tab=saved';
 })
 
 });
