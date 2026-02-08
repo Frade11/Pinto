@@ -23,14 +23,18 @@ $sql = "
         pm.source AS media_source,
         pm.file_path,
         pm.url AS media_url
-    FROM saved_posts sp
-    INNER JOIN posts p ON sp.post_id = p.id
-    INNER JOIN users u ON p.user_id = u.id
-    LEFT JOIN post_media pm ON p.id = pm.post_id
-    WHERE sp.user_id = ? AND pm.type = 'image'
+    FROM saved_posts AS sp
+    INNER JOIN posts AS p ON sp.post_id = p.id
+    INNER JOIN users AS u ON p.user_id = u.id
+    INNER JOIN post_media AS pm 
+        ON p.id = pm.post_id 
+        AND pm.type = 'image'
+        AND (pm.file_path IS NOT NULL OR pm.url IS NOT NULL)
+    WHERE sp.user_id = ?
     ORDER BY sp.created_at DESC
     LIMIT ? OFFSET ?
 ";
+
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("iii",$userId, $postsPerPage, $offset);
@@ -79,24 +83,37 @@ if ($result && $result->num_rows > 0) {
     echo '</div>';
     
     // Пагинация
-    $countSql = "SELECT COUNT(*) as total 
-                    FROM post_media 
-                    WHERE type = 'image'";
-    $countResult = $conn->query($countSql);
-    $totalPosts = $countResult->fetch_assoc()['total'];
+     $countSql = "
+        SELECT COUNT(*) AS total
+        FROM saved_posts AS sp
+        INNER JOIN post_media AS pm 
+            ON sp.post_id = pm.post_id 
+            AND pm.type = 'image'
+            AND (pm.file_path IS NOT NULL OR pm.url IS NOT NULL)
+        WHERE sp.user_id = ?
+    ";
+    $countStmt = $conn->prepare($countSql);
+    $countStmt->bind_param("i", $userId);
+    $countStmt->execute();
+    $countResult = $countStmt->get_result();
+    $totalPosts = $countResult->fetch_assoc()['total'] ?? 0;
+    $countStmt->close();
+
     $totalPages = ceil($totalPosts / $postsPerPage);
     
-    if ($totalPages > 1) {
-        echo '<div class="load-more">';
-        if ($page > 1) {
-            echo '<a href="?page=' . ($page - 1) . '" class="load-more-btn">← Previous</a> ';
-        }
-        echo '<span style="margin: 0 15px; color: #666;">Page ' . $page . ' of ' . $totalPages . '</span>';
-        if ($page < $totalPages) {
-            echo '<a href="?page=' . ($page + 1) . '" class="load-more-btn">Next →</a>';
-        }
-        echo '</div>';
+  $currentTab = $_GET['tab']; 
+    
+if ($totalPages > 1) {
+    echo '<div class="load-more">';
+    if ($page > 1) {
+        echo '<a href="?tab=' . $currentTab . '&page=' . ($page - 1) . '" class="load-more-btn">← Previous</a>';
     }
+    echo '<span style="margin: 0 15px; color: #666;">Page ' . $page . ' of ' . $totalPages . '</span>';
+    if ($page < $totalPages) {
+        echo '<a href="?tab=' . $currentTab . '&page=' . ($page + 1) . '" class="load-more-btn">Next →</a>';
+    }
+    echo '</div>';
+}
     
 } else {
     echo '<div class="no-posts">
