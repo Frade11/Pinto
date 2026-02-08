@@ -61,6 +61,9 @@
       box-shadow: 0 6px 14px rgba(91, 91, 255, 0.4);
       background: linear-gradient(135deg, #4747ff, #b394ff);
     }
+    .error-container img{
+        width: 200px;
+    }
 
     @media (max-width: 600px) {
       .error-code {
@@ -78,6 +81,7 @@
 <body>
   <div class="error-container">
     <div class="error-code">404</div>
+    <img src="/Pinto/assets/images/404bg.png" alt="">
     <div class="error-message">Page Not Found</div>
     <div class="error-description">
       Sorry, the page you are looking for doesn't exist.<br>

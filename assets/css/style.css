@@ -1066,3 +1066,82 @@ select {
     background-color: #ffffff;
     border-radius: 1px;
 }
+.right-posts-column {
+    width: 350px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.edit-post-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.edit-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-post-form label {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.edit-post-form input[type="text"],
+.edit-post-form textarea,
+.edit-post-form select {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+}
+
+.edit-post-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.edit-post-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.save-post-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #5b5bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.save-post-btn:hover {
+    background: #4747ff;
+}
+
+.delete-post-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.delete-post-btn:hover {
+    background: #c0392b;
+}
