@@ -24,6 +24,10 @@ require_once "../connection.php";
             <p class="news">v1.2 register/login system where posts are linked tu user id</p>
             <p class="news">v1.3 added popular posts on home page</p>
             <p class="news">v1.4 added user overlay and more secure logout</p>
+            <p class="news">v1.5 Created likes and saves for detailed posts system</p>
+            <p class="news">v1.6 Added profile costumisation and name change</p>
+            <p class="news">v1.7 Pagination and tabs fixed for pins page</p>
+            <p class="news">v1.8 Added 404 and .htacces</p>
         </div>
         </div>
 

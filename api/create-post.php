@@ -2,11 +2,30 @@
 require_once "../connection.php";
 session_start();
 
-$userEmail = $_SESSION['email'];
-
+// Проверка авторизации
+$userEmail = $_SESSION['email'] ?? null;
 if (!$userEmail) {
     die("Error: login to continue");
 }
+
+// Проверка категории
+if (empty($_POST['category_id'])) {
+    die("Error: Category is required");
+}
+$categoryId = (int)$_POST['category_id'];
+
+// Проверяем существование категории
+$checkCat = $conn->prepare("SELECT id FROM categories WHERE id = ?");
+$checkCat->bind_param("i", $categoryId);
+$checkCat->execute();
+$checkCat->store_result();
+
+if ($checkCat->num_rows === 0) {
+    die("Error: Selected category does not exist");
+}
+$checkCat->close();
+
+// Получаем ID пользователя
 $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->bind_param("s", $userEmail);
 $stmt->execute();
@@ -15,10 +34,11 @@ $result = $stmt->get_result();
 if ($row = $result->fetch_assoc()) {
     $userId = $row['id'];
 } else {
-    die("Error:user not find");
+    die("Error: user not found");
 }
-
 $stmt->close();
+
+
 
 // $userId = 1; // временно
 
@@ -38,48 +58,17 @@ if ($file && $file['error'] === 0 && $url) {
 $conn->begin_transaction();
 
 try {
-    // 1. Создаем пост (СНАЧАЛА БЕЗ category_id)
-    $stmt = $conn->prepare("INSERT INTO posts (user_id, name, description) VALUES (?, ?, ?)");
+    // 1. Создаем пост 
+    $stmt = $conn->prepare("INSERT INTO posts (user_id, category_id, name, description) VALUES (?, ?, ?, ?)");
     $postName = $_POST['name'] ?? "Post name";
     $description = $_POST['description'] ?? "";
-    $stmt->bind_param("iss", $userId, $postName, $description);
+    $stmt->bind_param("iiss", $userId, $categoryId, $postName, $description);
     $stmt->execute();
     $postId = $stmt->insert_id;
     $stmt->close();
 
-    // 2. Обработка категории (если есть и она валидна)
-    if (!empty($_POST['category_id'])) {
-        $categoryId = (int)$_POST['category_id'];
-        
-        // Проверяем, существует ли такая категория
-        $checkCat = $conn->prepare("SELECT id FROM categories WHERE id = ?");
-        $checkCat->bind_param("i", $categoryId);
-        $checkCat->execute();
-        $checkCat->store_result();
-        
-        if ($checkCat->num_rows > 0) {
-            // Категория существует - обновляем пост
-            $updateStmt = $conn->prepare("UPDATE posts SET category_id = ? WHERE id = ?");
-            $updateStmt->bind_param("ii", $categoryId, $postId);
-            $updateStmt->execute();
-            $updateStmt->close();
-        } else {
-            // Категории нет - можно либо игнорировать, либо создать по умолчанию
-            // Или бросить ошибку:
-            // throw new Exception("Invalid category selected");
-            
-            // Либо установить NULL (если поле позволяет)
-            $updateStmt = $conn->prepare("UPDATE posts SET category_id = NULL WHERE id = ?");
-            $updateStmt->bind_param("i", $postId);
-            $updateStmt->execute();
-            $updateStmt->close();
-        }
-        $checkCat->close();
-    }
-
-    // 3. Обработка медиа (ваш существующий код)
+    // 2. Обработка медиа 
     if ($file && $file['error'] === 0) {
-        /* ================= FILE UPLOAD ================= */
         $allowed = ['image/jpeg','image/png','image/webp','image/gif'];
         
         // Проверка типа файла
@@ -132,12 +121,10 @@ try {
         $stmt->close();
         
     } elseif ($url) {
-        /* ================= URL ================= */
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
             throw new Exception("Invalid URL format");
         }
-        
-        // Проверяем, что это изображение (по расширению)
+        // Проверяем, что это изображение 
         $imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp'];
         $isImage = false;
         foreach ($imageExtensions as $ext) {
@@ -162,7 +149,7 @@ try {
         $stmt->close();
     }
     
-    // 4. Обработка тегов (если есть)
+    // 3. Обработка тегов 
     if (!empty($_POST['tags'])) {
         $tags = explode(',', $_POST['tags']);
         $tags = array_map('trim', $tags);
@@ -198,7 +185,6 @@ try {
     
     $conn->commit();
     
-    // Перенаправляем на страницу поста или главную
     header("Location: ../pages/posts.php");
     exit();
 

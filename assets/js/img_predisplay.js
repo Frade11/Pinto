@@ -19,3 +19,28 @@ fileInput.addEventListener('change', () => {
         preview.innerHTML = ''; 
     }
 });
+
+// Валидация формы перед отправкой
+document.querySelector('form').addEventListener('submit', function(e) {
+    const categorySelect = this.querySelector('select[name="category_id"]');
+    const mediaFile = this.querySelector('input[name="media_file"]');
+    const mediaUrl = this.querySelector('input[name="media_url"]');
+    
+    if (!categorySelect.value) {
+        alert('Please select a category');
+        e.preventDefault();
+        return;
+    }
+    
+    if (!mediaFile.files.length && !mediaUrl.value.trim()) {
+        alert('Please upload an image or provide an image URL');
+        e.preventDefault();
+        return;
+    }
+    
+    if (mediaFile.files.length && mediaUrl.value.trim()) {
+        alert('Please choose either file upload OR URL, not both');
+        e.preventDefault();
+        return;
+    }
+});
