@@ -41,7 +41,12 @@ body {
   align-self: center;
   cursor: pointer;
 }
-
+.sidebar .logoImg{
+  display: block;
+}
+.sidebar .logoImgMobile{
+  display: none;
+}
 .sidebar .top-links {
   display: flex;
   flex-direction: column;
@@ -77,6 +82,7 @@ body {
 .sidebar .bottom-links {
   margin-top: auto;
   padding-bottom: 0px;
+  padding-left: 6px;
 }
 
 .bottom-links i {
@@ -1211,10 +1217,19 @@ select {
   }
 }
 @media(max-width:768px){
+   .content{
+    margin-bottom: 80px;
+  }
   .top-links a {
     font-size: 0; 
   }
 .search input {
   padding: 12px 45px;
+}
+.sidebar .logoImgMobile{
+  display: block;
+}
+.sidebar .logoImg{
+  display: none;
 }
 }

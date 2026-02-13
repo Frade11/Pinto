@@ -7,10 +7,15 @@ const trendsBtn = document.getElementById('trends');
 const pinsBtn = document.getElementById('pins');
 const createBtn = document.getElementById('create');
 
-const logoImg = document.querySelector('.logoImg')
+const logoImg = document.querySelector('.logoImg');
+const logoMobile = document.querySelector('.logoImgMobile');
+
 logoImg.addEventListener("click", () =>{
     window.location.href = "../pages/home.php"
-})
+});
+logoMobile.addEventListener("click", () =>{
+    window.location.href = "../pages/home.php"
+});
 
 
 switch(pageName){
@@ -19,4 +24,4 @@ switch(pageName){
     case 'trends.php': trendsBtn.classList.add("active"); break;
     case 'pins.php': pinbsBtn.classList.add("active"); break;
     case 'create.php': createBtn.classList.add("active"); break;
-}
+};
