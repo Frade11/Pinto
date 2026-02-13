@@ -27,7 +27,7 @@ require_once "../connection.php";
             <p class="news">v1.5 Created likes and saves for detailed posts system</p>
             <p class="news">v1.6 Added profile costumisation and name change</p>
             <p class="news">v1.7 Pagination and tabs fixed for pins page</p>
-            <p class="news">v1.8 Added 404 and .htacces</p>
+            <p class="news">v1.8 Added 404 and like/save/your posts system in pins page</p>
         </div>
         </div>
 
