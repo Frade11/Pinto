@@ -1,5 +1,6 @@
 function adjustPosts(){
     const posts = document.querySelectorAll('.line_post');
+    const posts1 = document.querySelectorAll('.line_post1');
     let showNumber = 10;
 
     if(window.innerWidth < 1400) showNumber = 8; 
@@ -9,6 +10,9 @@ function adjustPosts(){
     if(window.innerWidth < 500) showNumber = 3; 
 
     posts.forEach((post, index) =>{
+        post.style.display = index < showNumber ? '' : 'none';
+    })
+     posts1.forEach((post, index) =>{
         post.style.display = index < showNumber ? '' : 'none';
     })
 }
