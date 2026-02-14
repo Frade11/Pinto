@@ -9,6 +9,9 @@ A modern, responsive web application for sharing, discovering, and organizing vi
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 
+
+🌐 **Live Site:** [pinto.wuaze.com](https://pinto.wuaze.com)
+
 </div>
 
 ---
