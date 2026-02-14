@@ -30,7 +30,13 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 </div>
             </div>
 
-
+            <div class="console" id="console">
+                <div class="console-header">
+                    <span>Terminal</span>
+                    <button id="closeConsole" class="close-btn">✖</button>
+                </div>
+                <div class="console-body" id="consoleBody"></div>
+            </div>
 
             <!-- <img src="../assets/images/logo.jpg" alt="user" class="userIcon" onclick="window.location.href='../login/logout.php'"> -->
         </div>

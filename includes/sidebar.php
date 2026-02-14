@@ -13,7 +13,7 @@
         </div>
 
         <div class="bottom-links">
-            <i class="fi fi-sc-settings"></i>
+            <i class="fi fi-sc-settings" id="openConsole"></i>
         </div>
     </div>
 
