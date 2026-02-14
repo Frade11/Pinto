@@ -165,7 +165,7 @@
                     </div>
                     
                    <!-- Редактирование поста -->
-                    <div class="right-posts-column">
+                    <div class="right-posts-column edit-post">
                         <div class="edit-post-card">
                             <h3>Edit Post</h3>
                             <form class="edit-post-form" method="POST" action="../api/update_post.php">

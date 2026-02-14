@@ -22,6 +22,6 @@ switch(pageName){
     case 'home.php': homeBtn.classList.add("active"); break;
     case 'posts.php': postsBtn.classList.add("active"); break;
     case 'trends.php': trendsBtn.classList.add("active"); break;
-    case 'pins.php': pinbsBtn.classList.add("active"); break;
+    case 'pins.php': pinsBtn.classList.add("active"); break;
     case 'create.php': createBtn.classList.add("active"); break;
 };
