@@ -23,7 +23,7 @@ body {
   top: 0;
   left: 0;
   width: 200px;
-  height: 100vh;
+ height: 100vh;
   background-color: #111;
   display: flex;
   flex-direction: column;
@@ -31,6 +31,9 @@ body {
   gap: 20px;
   z-index: 1000;
   overflow-y: auto;
+  transform: translateZ(0); 
+  -webkit-overflow-scrolling: touch;
+   overflow-y: auto;
 }
 
 .sidebar img {
@@ -1266,5 +1269,12 @@ select {
 }
 .card{
   padding: 12px;
+}
+.form_box {
+  transform: scale(1);
+  width: 90%;
+}
+.sidebar {
+ height: 100%;
 }
 }
