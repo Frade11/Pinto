@@ -6,6 +6,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 <div class="topbar">
+    
+    <img src="../assets/images/logo_pin.png" class="logoImgMobile" alt="logo" >
         <div class="search">
             <i class="fi fi-rs-search"></i>
             <input type="text" placeholder="Search...">
@@ -41,4 +43,5 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             <!-- <img src="../assets/images/logo.jpg" alt="user" class="userIcon" onclick="window.location.href='../login/logout.php'"> -->
         </div>
     </div>
+    <script src="../assets/js/currentPage.js"></script>
     <script src="../assets/js/mainScripts.js"></script>

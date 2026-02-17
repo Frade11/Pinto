@@ -30,7 +30,7 @@ redirectProfile.addEventListener('click', () => {
 
 const consoleEl = document.getElementById('console');
 const consoleBody = document.getElementById('consoleBody');
-const openBtn = document.getElementById('openConsole');
+const openBtns = document.querySelectorAll('.openConsole');
 const closeBtn = document.getElementById('closeConsole');
 
 const messages = [
@@ -75,12 +75,13 @@ function printMessages(index = 0) {
     typeLine(messages[index], () => printMessages(index + 1));
 }
 
-openBtn.addEventListener('click', () => {
-    consoleEl.style.display = 'flex';
-    consoleBody.innerHTML = ''; 
-    printMessages();
+openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        consoleEl.style.display = 'flex';
+        consoleBody.innerHTML = ''; 
+        printMessages();
+    });
 });
-
 closeBtn.addEventListener('click', () => {
     consoleEl.style.display = 'none';
 });
