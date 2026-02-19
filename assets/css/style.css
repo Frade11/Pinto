@@ -1285,6 +1285,9 @@ body {
 .side-news{
   display: block;
 }
+.right-posts-column.edit-post{
+  display: block;
+}
 
 @media (max-width: 1200px) {
   .posts-layout { flex-direction: column; }
@@ -1418,6 +1421,9 @@ body {
     width: 90%;
     padding: 30px 20px;
   }
+  .right-posts-column.edit-post{
+  display: block;
+}
 }
 @media (max-width: 600px) {
   /* .line_post,
